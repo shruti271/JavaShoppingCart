@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
@@ -6,7 +6,7 @@ import './App.css';
 
 const App = () => {
   const [products, setProducts] = useState([
-    { id: 1, name: 'Product 1', description: 'Description 1', price: 10.00, stock: 5, image_id: 'image1' },
+    { id: 1, name: 'Product 1', description: 'Description 1', price: 10.00, stock: 5, image_id: 'megan-byers-qln8l_yTi0w-unsplash.jpg' },
     { id: 2, name: 'Product 2', description: 'Description 2', price: 20.00, stock: 3, image_id: 'image2' },
     // Add more products as needed
   ]);

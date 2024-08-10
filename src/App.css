@@ -118,3 +118,19 @@ h2 {
   color: #333;
   margin-bottom: 20px;
 }
+
+.disabled-class {
+  background-color: red;
+  cursor:not-allowed;
+  pointer-events: none;
+}
+.product-description {
+  display: flex;
+  justify-content: space-between;
+}
+.product-image{
+  padding-right: 20px;
+}
+.product-image img{
+  border-radius: 10px;
+}
