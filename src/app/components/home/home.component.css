@@ -1,0 +1,123 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Home Container */
+.home-container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(to right, #3f51b5, #5c6bc0);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.header-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.header-content .btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #ff4081;
+  color: #fff;
+  border-radius: 25px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.header-content .btn:hover {
+  background: #f50057;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 1.5rem;
+  background: #f0f0f0;
+}
+
+.feature {
+  text-align: center;
+  flex: 1;
+  max-width: 300px;
+  padding: 1rem;
+}
+
+.feature i {
+  font-size: 2rem;
+  color: #3f51b5;
+  margin-bottom: 1rem;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Footer */
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.footer p {
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-links li {
+  margin: 0 1rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ff4081;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,15 @@
+<h2 class="posts-title">Posts List</h2>
+<div class="button-group">
+  <button class="btn btn-add" (click)="addNewAPI()">Add Post</button>
+  <button class="btn btn-update" (click)="updateAPI()">Update Post</button>
+  <button class="btn btn-delete" (click)="deleteAPI()">Delete Post</button>
+</div>
+<div class="posts-container">
+  <div class="post-card" *ngFor="let p of posts; trackBy: trackById">
+    <p><strong>Id:</strong> {{ p.id }}</p>
+    <p><strong>Title:</strong> {{ p.title }}</p>
+    <p><strong>Body:</strong> {{ p.body }}</p>
+    <p><strong>UserId:</strong> {{ p.userId }}</p>
+    <hr />
+  </div>
+</div>
