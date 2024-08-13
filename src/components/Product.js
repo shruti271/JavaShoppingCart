@@ -1,6 +1,39 @@
 import React, { useState } from 'react';
+
 const Product = ({ product, addToCart }) => {
   const [quantity, setQuantity] = useState(1);
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const ImageUpload = async (event) => {
+    
+      const formData = new FormData();
+      formData.append('image', event.target.files[0]);
+  
+  
+      const imageURL = URL.createObjectURL(event.target.files[0]);
+      setImagePreview(imageURL);
+
+      try {
+        const response = await fetch('http://localhost:5000/upload', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'image-id': "img_"+product.id+event.target.files[0].name.slice('1'),
+            'product':JSON.stringify(product)
+          },
+        });
+  
+        if (response.ok) {
+          const result = await response.json();
+           console.log("okk");
+        } else {
+          console.log("hsuf");
+        }
+      } catch (error) {
+        
+        console.error('Error:', error);
+      }   
+  };
 
   const handleQuantityChange = (e) => {
     setQuantity(Math.max(1, Math.min(product.stock, parseInt(e.target.value, 10))));
@@ -27,9 +60,9 @@ const Product = ({ product, addToCart }) => {
           <p>Price: ${product.price.toFixed(2)}</p>
           <p>Stock: {product.stock}</p>
         </div>
-        <input type='file' onChange={handleImageChange} ></input>
-        <div className='product-image'>
-          <img height={100} width={100} src={product.image_id} />
+        <input type='file' onChange={ImageUpload} ></input>
+        <div className='product-image'>                 
+          <img height={100} width={100} src={imagePreview?imagePreview:"http://localhost:5000/productImages/"+product.imageId} />                    
         </div>
       </div>
       <div className="quantity-controls">
