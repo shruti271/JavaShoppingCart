@@ -1,7 +1,8 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import Cart from './components/Cart';
+import ImageUpload from './components/ImageUpload';
 import './App.css';
 
 const App = () => {
@@ -55,6 +56,11 @@ const App = () => {
     setProducts(products.map(p => p.id === product.id ? { ...p, stock: p.stock + existingProduct.quantity } : p));
   };
 
+  const handleImageUpload = (file) => {
+    console.log('Uploaded file:', file);
+    // Handle file upload logic here
+  };
+
   return (
     <Router>
       <div className="App">
@@ -62,6 +68,7 @@ const App = () => {
           <ul>
             <li><Link to="/">Products</Link></li>
             <li><Link to="/cart">Cart</Link></li>
+            <li><Link to="/upload">Upload Image</Link></li>
           </ul>
         </nav>
 
@@ -69,6 +76,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<ProductList products={products} addToCart={addToCart} />} />
             <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} removeAllFromCart={removeAllFromCart} />} />
+            <Route path="/upload" element={<ImageUpload onImageUpload={handleImageUpload} />} />
           </Routes>
         </div>
       </div>
