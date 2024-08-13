@@ -8,8 +8,7 @@ const Product = ({ product, addToCart }) => {
     
       const formData = new FormData();
       formData.append('image', event.target.files[0]);
-  
-  
+    
       const imageURL = URL.createObjectURL(event.target.files[0]);
       setImagePreview(imageURL);
 
@@ -18,7 +17,7 @@ const Product = ({ product, addToCart }) => {
           method: 'POST',
           body: formData,
           headers: {
-            'image-id': "img_"+product.id+event.target.files[0].name.slice('1'),
+            'image-id': "img_"+product.id+"."+event.target.files[0].name.split('.').pop(),
             'product':JSON.stringify(product)
           },
         });
